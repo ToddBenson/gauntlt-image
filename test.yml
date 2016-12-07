@@ -1,0 +1,16 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: tgbenson/securityimage, tag: "latest"}
+params:
+  HOSTNAME: e3.pncie.com
+
+inputs:
+- name: git-sectests 
+
+run: 
+  dir: git-sectests 
+  path: /opt/gauntlt/bin/gauntlt
+  args: [-t @perf] 
